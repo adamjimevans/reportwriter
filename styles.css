@@ -1,0 +1,13 @@
+body {
+    background-color: blanchedalmond;
+    font-family: Cabin, serif;
+}
+
+.form-group {
+    margin-bottom: 10px;
+  }
+
+  .header {
+    text-align: center;
+    background-color: olive;
+  }

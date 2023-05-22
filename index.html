@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Report Writer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,700;1,400&family=Lora:wght@700&family=Ubuntu:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="header">
+        <h1>Adam's Teaching Report Writer</h1>
+        <h2>No more report worrys! Generate your reports fast and spend more time & energy on great teaching.</h2>
+        <h3>Write your reports quickly & easily, with no mistakes!</h3>
+    </div>
+
+  <div id="reportForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="topic">Topic:</label>
+      <input type="text" id="topic" required>
+    </div>
+
+    <div class="form-group">
+      <label for="course">Course:</label>
+      <input type="text" id="course" required>
+    </div>
+
+    <div class="form-group">
+      <label for="grade">Grade:</label>
+      <input type="number" id="grade" required>
+    </div>
+
+    <div class="form-group">
+      <label for="target">Target:</label>
+      <input type="number" id="target" required>
+    </div>
+
+    <div class="form-group">
+      <label for="feedback">Feedback:</label>
+      <textarea id="feedback" rows="4" cols="50" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <button onclick="generateReport()">Generate Report</button>
+    </div>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+    function generateReport() {
+      const name = document.getElementById("name").value;
+      const topic = document.getElementById("topic").value;
+      const course = document.getElementById("course").value;
+      const grade = parseInt(document.getElementById("grade").value);
+      const target = parseInt(document.getElementById("target").value);
+      const feedback = document.getElementById("feedback").value;
+
+      let comment;
+      if (grade === 0) {
+        comment = "a lack of";
+      } else if (grade > target) {
+        comment = "excellent";
+      } else if (grade === target) {
+        comment = "sound";
+      } else {
+        comment = "some";
+      }
+
+      const result = document.getElementById("result");
+      result.innerHTML = "This term we have been studying " + topic + " towards the " + course + ". " + name + " has achieved a grade " + grade + " in our assessments which shows " + comment + " progress towards their target of " + target + ". Going forward they should focus on " + feedback;
+    }
+  </script>
+</body>
+</html>
